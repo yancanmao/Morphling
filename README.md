@@ -136,3 +136,23 @@ This article describes [how to contribute to Apache Flink](http://flink.apache.o
 
 Apache Flink is an open source project of The Apache Software Foundation (ASF).
 The Apache Flink project originated from the [Stratosphere](http://stratosphere.eu) research project.
+
+
+## Morphling Related README
+
+### 源码入口
+
+我们的源码主要都封装在了Flink-runtime 和 Flink-streaming-java里（目前还是一个prototype），如果是看源码的话，我们有两个入口，Controller是从MorphlingController.java运行的，Metrics是从MetricsManager出发的。
+
+### 用法
+
+用途上，我们expose了几个配置在flink-conf.yaml中，默认情况下，我们的实验是在一个single operator的[word count]( https://github.com/yancanmao/flink-testbed/blob/FlinkHackathon/src/main/java/flinkapp/StatefulDemoLongRun.java)上做的。
+其中，可以替换config来跑对应的stream job。
+model.vertex 可以设置需要做Scaling的operator，我们的prototype暂时只对一个operator做scaling。（有一些其他的config可以暂时不用管）
+
+### 系统架构
+
+这里有一张我们以前的系统架构图，希望可以提供一定的参考，这里StreamSwitch可以替换成Morphling。
+
+![image](https://user-images.githubusercontent.com/24371733/149704118-cea2c4da-c2e8-4217-92f8-c14662c071d6.png)
+
