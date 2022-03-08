@@ -48,13 +48,15 @@ public abstract class StreamSwitch extends Thread implements FlinkOperatorContro
 
 	private String[] targetVertices;
 
-	private Configuration config;
+	protected Configuration config;
 
 	private long timeIndex;
 
 	private int numPartitions; // be used for metrics retriever, for initial metrics
 
 	protected Map<String, Long> oeUnlockTime = new HashMap<>();
+
+	protected Map<String, Long> substreamUnlockTime = new HashMap<>();
 
 
 	@Override
