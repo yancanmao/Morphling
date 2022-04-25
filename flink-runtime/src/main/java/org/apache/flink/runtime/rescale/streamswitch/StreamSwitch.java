@@ -58,7 +58,6 @@ public abstract class StreamSwitch extends Thread implements FlinkOperatorContro
 
 	protected Map<String, Long> substreamUnlockTime = new HashMap<>();
 
-
 	@Override
 	public void init(OperatorControllerListener listener, List<String> executors, List<String> partitions) {
 		LOG.info("Initialize with executors: " + executors + "  partitions: " + partitions);

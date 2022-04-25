@@ -63,8 +63,8 @@ public class FlinkStreamSwitchAdaptor {
 //			}
 
 			config.setString("vertex_id", vertexID.toString());
-//			FlinkOperatorController controller = new LatencyGuarantor(config);
-			FlinkOperatorController controller = new MorphlingController(config);
+			FlinkOperatorController controller = new LatencyGuarantor(config);
+//			FlinkOperatorController controller = new MorphlingController(config);
 			OperatorControllerListener listener = new OperatorControllerListenerImpl(vertexID, parallelism, maxParallelism);
 
 			controller.init(listener, generateExecutorDelegates(parallelism), generateFinestPartitionDelegates(maxParallelism));

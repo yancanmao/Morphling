@@ -24,6 +24,7 @@ public class LatencyGuarantor extends StreamSwitch {
 
 
 	public LatencyGuarantor(Configuration config){
+		this.config = config;
 		jobid = config.getString("vertex_id", "c21234bcbf1e8eb4c61f1927190efebd"); // use jobvertex here
 		isTreat = config.getBoolean("streamswitch.system.is_treat", true);
 		metricsRetreiveInterval = config.getInteger("streamswitch.system.metrics_interval", 100);
