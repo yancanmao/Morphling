@@ -40,7 +40,7 @@ public class StockMetricsRetriever implements StreamSwitchMetricsRetriever {
 
 	private HashMap<String, Long> workerTimeStamp = new HashMap<>(); // latest timestamp of each partition, timestamp smaller than value in this should be invalid
 	private HashMap<String, Double> lastExecutorServiceRate = new HashMap<>();
-//	private HashMap<String, Long> lastpartitionArrived = new HashMap<>();
+	//	private HashMap<String, Long> lastpartitionArrived = new HashMap<>();
 	private double initialParallelism;
 
 	private HashMap<String, Long> partitionArrivedState = new HashMap<>();
@@ -249,11 +249,6 @@ public class StockMetricsRetriever implements StreamSwitchMetricsRetriever {
 		return vertexID;
 	}
 
-	@Override
-	public void clear() {
-
-	}
-
 	public String getPartitionId(String keyGroup) {
 		return  keyGroup.split(":")[0];
 //		return  "Partition " + keyGroup.split(":")[0];
@@ -312,5 +307,8 @@ public class StockMetricsRetriever implements StreamSwitchMetricsRetriever {
 //				+ " true rate: " + ratesLine[3] + " observed rate: " + ratesLine[5]);
 //			System.out.println("actual processed: " + actual_processed + " records in: " + ratesLine[8] + " partition processed: " + ratesLine[12]);
 		}
+	}
+	@Override
+	public void clear() {
 	}
 }
